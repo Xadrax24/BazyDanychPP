@@ -130,7 +130,7 @@ values
 		ELSE 0
 	END;
 
-ALTER TABLE ksiegowosc.pracownicy -- a)
+ALTER TABLE ksiegowosc.pracownicy -- a) ZADANIE 6
 ADD telefon_kierunkowy VARCHAR(20)
 UPDATE ksiegowosc.pracownicy
 SET telefon_kierunkowy = CONCAT('(+48)', telefon);
@@ -147,6 +147,11 @@ WHERE UPPER(nazwisko) = (
     FROM ksiegowosc.pracownicy
     ORDER BY LEN(nazwisko) DESC
 );
+
+SELECT TOP 1 id_pracownika, UPPER(imie) AS imie, UPPER(nazwisko) AS nazwisko, UPPER(adres) AS adres, telefon -- c.2)
+FROM ksiegowosc.pracownicy
+ORDER BY LEN(nazwisko) DESC;
+
 
 SELECT -- d)
 HASHBYTES('MD5', nazwisko) AS nazwisko_md5,
