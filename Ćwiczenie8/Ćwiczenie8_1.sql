@@ -18,7 +18,10 @@ FROM HumanResources.EmployeePayHistory eph
 JOIN Person.Person pp ON eph.BusinessEntityID = pp.BusinessEntityID
 JOIN HumanResources.Employee hre ON eph.BusinessEntityID = hre.BusinessEntityID
 )
-SELECT *
-FROM TempEmployeeInfo
-ORDER BY 
-	LastName;
+SELECT * 
+INTO #TempTable
+FROM TempEmployeeInfo;
+
+SELECT * 
+FROM #TempTable
+ORDER BY LastName;
